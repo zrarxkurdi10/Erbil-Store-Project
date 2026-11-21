@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>ZRAR — Luxury Mobile &amp; Tech | Erbil, Kurdistan Region</title>
+<meta name="description" content="ZRAR — flagship phones, wearables and accessories in Erbil. Pay in USD or IQD, split into monthly installments, order in seconds on WhatsApp." />
+<meta name="theme-color" content="#050505" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<!-- Tailwind CSS (CDN) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          obsidian: "#050505",
+          gold: { DEFAULT: "#d9b36b", light: "#f3dba5", deep: "#b8893f" },
+        },
+        fontFamily: {
+          display: ['"Cormorant Garamond"', "Georgia", "serif"],
+          sans: ["Manrope", "system-ui", "sans-serif"],
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  :root { --gold: #d9b36b; --gold-light: #f3dba5; --gold-deep: #b8893f; }
+  html { scroll-behavior: smooth; background: #050505; }
+  body {
+    margin: 0; background: #050505; color: #fff;
+    font-family: "Manrope", system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  }
+  ::selection { background: rgba(217,179,107,.35); color: #fff; }
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: #050505; }
+  ::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 10px; border: 2px solid #050505; }
+  section[id] { scroll-margin-top: 84px; }
+  :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+  /* ---------- Ambient glow + film grain ---------- */
+  .ambient { position: fixed; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; }
+  .ambient i { position: absolute; border-radius: 50%; filter: blur(110px); opacity: .15; }
+  .ambient i:nth-child(1) { width: 46vw; height: 46vw; left: -12vw; top: -10vw; background: #d9b36b; animation: drift 22s ease-in-out infinite alternate; }
+  .ambient i:nth-child(2) { width: 40vw; height: 40vw; right: -10vw; bottom: -12vw; background: #6d5bff; animation: drift 28s ease-in-out infinite alternate-reverse; }
+  @keyframes drift { to { transform: translate3d(6vw, 4vw, 0) scale(1.15); } }
+  .grain {
+    position: fixed; inset: 0; z-index: 2; pointer-events: none; opacity: .05; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+
+  /* ---------- Glass ---------- */
+  .glass {
+    background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+    border: 1px solid rgba(255,255,255,.09);
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
+    backdrop-filter: blur(20px) saturate(150%);
+  }
+  .nav-glass { background: rgba(5,5,5,.35); border-bottom: 1px solid rgba(255,255,255,.06); -webkit-backdrop-filter: blur(18px) saturate(160%); backdrop-filter: blur(18px) saturate(160%); }
+  .nav-glass-solid { background: rgba(5,5,5,.72); border-bottom: 1px solid rgba(255,255,255,.1); -webkit-backdrop-filter: blur(22px) saturate(170%); backdrop-filter: blur(22px) saturate(170%); box-shadow: 0 10px 40px -20px #000; }
+  .drawer-panel { background: linear-gradient(180deg, rgba(16,16,16,.94), rgba(6,6,6,.97)); border-left: 1px solid rgba(255,255,255,.08); -webkit-backdrop-filter: blur(28px); backdrop-filter: blur(28px); }
+
+  /* ---------- Type helpers ---------- */
+  .text-gold-grad { background: linear-gradient(120deg, #f3dba5, #d9b36b 45%, #b8893f); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; padding-right: .06em; }
+  .eyebrow { font-size: 11px; letter-spacing: .32em; text-transform: uppercase; color: var(--gold); font-weight: 600; }
+
+  /* ---------- Buttons ---------- */
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: .6rem; border-radius: 999px; padding: .95rem 1.8rem; font-size: .875rem; letter-spacing: .03em; font-weight: 700; transition: transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s, border-color .3s, background .3s; position: relative; overflow: hidden; cursor: pointer; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn:active { transform: translateY(0) scale(.98); }
+  .btn-gold { background: linear-gradient(135deg, #f3dba5, #d9b36b 50%, #b8893f); color: #1a1305; box-shadow: 0 12px 34px -12px rgba(217,179,107,.6), inset 0 1px 0 rgba(255,255,255,.5); }
+  .btn-gold::after { content: ""; position: absolute; top: 0; left: -120%; width: 60%; height: 100%; background: linear-gradient(100deg, transparent, rgba(255,255,255,.55), transparent); transform: skewX(-20deg); transition: left .8s; }
+  .btn-gold:hover::after { left: 140%; }
+  .btn-gold:hover { box-shadow: 0 18px 44px -12px rgba(217,179,107,.75), inset 0 1px 0 rgba(255,255,255,.6); }
+  .btn-ghost { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.16); color: #fff; -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
+  .btn-ghost:hover { border-color: rgba(217,179,107,.55); background: rgba(255,255,255,.09); }
+  .btn-wa { background: linear-gradient(135deg, #2be07a, #1fb85a 55%, #128c46); color: #03140a; box-shadow: 0 14px 34px -14px rgba(37,211,102,.65), inset 0 1px 0 rgba(255,255,255,.35); }
+  .btn-wa:hover { box-shadow: 0 20px 44px -14px rgba(37,211,102,.8), inset 0 1px 0 rgba(255,255,255,.45); }
+  .btn[disabled], .btn[aria-disabled="true"] { opacity: .4; pointer-events: none; filter: grayscale(.5); }
+
+  /* ---------- Border Beam (animated light trail) ---------- */
+  .beam-ring {
+    position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+    border: var(--bw, 1px) solid transparent;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+  }
+  .beam-dot {
+    position: absolute; display: block; aspect-ratio: 1 / 1; width: var(--size, 200px);
+    background: linear-gradient(to left, var(--from), var(--to), transparent);
+    offset-anchor: 90% 50%;
+    offset-path: rect(0 auto auto 0 round var(--radius, 24px));
+    animation: beam-travel var(--dur, 8s) linear infinite;
+    animation-delay: var(--delay, 0s);
+  }
+  @keyframes beam-travel { from { offset-distance: 0%; } to { offset-distance: 100%; } }
+  /* Fallback for browsers without offset-path: rect() */
+  @supports not (offset-path: rect(0 auto auto 0)) {
+    .beam-dot { display: none; }
+    .beam-ring::before {
+      content: ""; position: absolute; inset: -80%;
+      background: conic-gradient(from 0deg, transparent 0 80%, var(--from) 92%, var(--to) 100%);
+      animation: beam-spin var(--dur, 8s) linear infinite; animation-delay: var(--delay, 0s);
+    }
+    @keyframes beam-spin { to { transform: rotate(360deg); } }
+  }
+
+  /* ---------- Tilt cards ---------- */
+  .tilt-card { will-change: transform; transition: border-color .4s, box-shadow .4s; box-shadow: 0 30px 60px -40px rgba(0,0,0,.9); }
+  .tilt-card:hover { border-color: rgba(217,179,107,.35); box-shadow: 0 50px 90px -35px rgba(0,0,0,.95), 0 0 70px -25px rgba(217,179,107,.28); }
+  .tilt-card .spot { position: absolute; inset: 0; z-index: 3; pointer-events: none; opacity: 0; transition: opacity .4s; background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,.11), transparent 45%); }
+  .tilt-card:hover .spot { opacity: 1; }
+
+  /* ---------- Misc animation ---------- */
+  .price-swap { display: inline-block; animation: price-swap .5s cubic-bezier(.2,.8,.2,1); }
+  @keyframes price-swap { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: none; } }
+  .marquee-track { animation: marquee 46s linear infinite; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .toast-pop { animation: toast-in .5s cubic-bezier(.2,.8,.2,1) both; }
+  @keyframes toast-in { from { opacity: 0; transform: translate(-50%, 18px) scale(.96); } to { opacity: 1; transform: translate(-50%, 0) scale(1); } }
+  .cue { animation: cue 2.2s ease-in-out infinite; }
+  @keyframes cue { 0%,100% { transform: translateY(0); opacity: .5; } 50% { transform: translateY(8px); opacity: 1; } }
+
+  /* ---------- Form controls ---------- */
+  .field { width: 100%; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: 12px; padding: 10px 12px; font-size: 13px; color: #fff; outline: none; transition: border-color .2s, background .2s; font-family: inherit; }
+  .field::placeholder { color: rgba(255,255,255,.35); }
+  .field:focus { border-color: rgba(217,179,107,.6); background: rgba(255,255,255,.06); }
+  input[type="range"].zrar-range { -webkit-appearance: none; appearance: none; width: 100%; height: 6px; border-radius: 99px; outline: none; cursor: pointer; }
+  input[type="range"].zrar-range::-webkit-slider-runnable-track { background: transparent; height: 6px; }
+  input[type="range"].zrar-range::-moz-range-track { background: transparent; height: 6px; }
+  input[type="range"].zrar-range::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; height: 22px; width: 22px; margin-top: -8px; border-radius: 50%; background: linear-gradient(135deg, #f3dba5, #b8893f); border: 2px solid #0a0a0a; box-shadow: 0 0 0 3px rgba(217,179,107,.3), 0 4px 14px rgba(0,0,0,.6); }
+  input[type="range"].zrar-range::-moz-range-thumb { height: 18px; width: 18px; border-radius: 50%; background: linear-gradient(135deg, #f3dba5, #b8893f); border: 2px solid #0a0a0a; box-shadow: 0 0 0 3px rgba(217,179,107,.3); }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+  }
+</style>
+
+<!-- React, ReactDOM, Babel (CDN) -->
+<script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
+
+<!-- GSAP + ScrollTrigger (CDN) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+<div id="root"></div>
+<noscript><p style="padding:2rem;text-align:center">ZRAR needs JavaScript enabled to load the store.</p></noscript>
+
+<script type="text/babel">
+const { useState, useEffect, useLayoutEffect, useRef, useMemo, useCallback, createContext, useContext } = React;
+
+gsap.registerPlugin(ScrollTrigger);
+const prefersReduced = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+
+/* ==========================================================================
+   STORE CONFIG — edit these to match your shop
+   ========================================================================== */
+const CONFIG = {
+  brand: "ZRAR",
+  subtitle: "ERBIL • KURDISTAN REGION",
+  whatsapp: "9647507993438",              // used for every wa.me link
+  whatsappDisplay: "+964 750 799 3438",
+  iqdPerUsd: 1500,                        // 1 USD = 1,500 IQD
+  installmentMonths: [6, 12, 24],
+  // Flat service fee added to the financed amount per plan (0.05 = 5%). Default 0 = plain split.
+  installmentFee: { 6: 0, 12: 0, 24: 0 },
+  installmentMinPrice: 500,               // devices at or above this USD price get installments
+};
+
+/* ==========================================================================
+   PRODUCTS — prices are in USD (IQD is converted automatically).
+   Swap each `img:` value for your own product photo URL or file path.
+   ========================================================================== */
+const PRODUCTS = [
+  {
+    id: "iphone-16-pro-max",
+    name: "iPhone 16 Pro Max",
+    category: "Phones",
+    badge: "Flagship",
+    tagline: "Grade-5 titanium. A18 Pro. Camera Control.",
+    specs: ["6.9″ Super Retina XDR", "A18 Pro chip", "5× Telephoto"],
+    price: 1199,
+    featured: true,
+    // <!-- REPLACE WITH YOUR PRODUCT IMAGE -->
+    img: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    id: "galaxy-s25-ultra",
+    name: "Samsung Galaxy S25 Ultra",
+    category: "Phones",
+    badge: "Flagship",
+    tagline: "Galaxy AI. 200MP. Built-in S Pen.",
+    specs: ["6.9″ Dynamic AMOLED 2X", "Snapdragon 8 Elite", "200MP main camera"],
+    price: 1299,
+    featured: true,
+    // <!-- REPLACE WITH YOUR PRODUCT IMAGE -->
+    img: "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    id: "apple-watch-ultra-2",
+    name: "Apple Watch Ultra 2",
+    category: "Wearables",
+    badge: "Adventure",
+    tagline: "49mm titanium. 3,000 nits. Built for more.",
+    specs: ["49mm titanium case", "3,000 nits display", "Dual-frequency GPS"],
+    price: 799,
+    featured: true,
+    // <!-- REPLACE WITH YOUR PRODUCT IMAGE -->
+    img: "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    id: "airpods-pro-2",
+    name: "AirPods Pro 2",
+    category: "Wearables",
+    badge: "Audio",
+    tagline: "Adaptive Audio. Active Noise Cancellation.",
+    specs: ["H2 chip", "Up to 2× more ANC", "USB-C charging case"],
+    price: 249,
+    featured: false,
+    // <!-- REPLACE WITH YOUR PRODUCT IMAGE -->
+    img: "https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    id: "apple-magsafe-charger",
+    name: "Apple MagSafe Charger",
+    category: "Accessories",
+    badge: "Essential",
+    tagline: "Magnetic. Effortless. Up to 15W.",
+    specs: ["Up to 15W wireless", "Perfect magnetic alignment", "USB-C cable"],
+    price: 39,
+    featured: false,
+    // <!-- REPLACE WITH YOUR PRODUCT IMAGE -->
+    img: "https://images.unsplash.com/photo-1622445275576-721325763afe?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    id: "spigen-rugged-armor",
+    name: "Spigen Rugged Armor Case",
+    category: "Accessories",
+    badge: "Protection",
+    tagline: "Matte carbon texture. Raised-edge protection.",
+    specs: ["Flexible TPU body", "Matte carbon design", "Raised screen lip"],
+    price: 25,
+    featured: false,
+    // <!-- REPLACE WITH YOUR PRODUCT IMAGE -->
+    img: "https://images.unsplash.com/photo-1601972599720-36938d4ecd31?auto=format&fit=crop&w=1200&q=80",
+  },
+];
+
+const CATEGORIES = ["All", "Phones", "Wearables", "Accessories"];
+
+const SPECS = [
+  { prefix: "A", value: 18, suffix: " Pro", device: "iPhone 16 Pro Max", text: "Apple's most capable iPhone silicon, wrapped in grade-5 titanium behind a 6.9″ Super Retina XDR display." },
+  { prefix: "", value: 200, suffix: "MP", device: "Galaxy S25 Ultra", text: "A 200MP main camera, Snapdragon 8 Elite for Galaxy and a built-in S Pen inside a titanium frame." },
+  { prefix: "", value: 3000, suffix: " nits", device: "Apple Watch Ultra 2", text: "The brightest Apple Watch display, a 49mm titanium case and dual-frequency GPS for serious adventures." },
+  { prefix: "", value: 2, suffix: "× ANC", device: "AirPods Pro 2", text: "Up to twice the active noise cancellation of the original AirPods Pro, powered by the H2 chip." },
+];
+
+const HERO_STATS = [
+  { k: "06", v: "Flagship devices" },
+  { k: "6 · 12 · 24", v: "Monthly installment plans" },
+  { k: "USD ⇄ IQD", v: "Live currency switching" },
+];
+
+/* ==========================================================================
+   Helpers
+   ========================================================================== */
+const round2 = (n) => Math.round(n * 100) / 100;
+
+function formatMoney(usd, cur) {
+  if (cur === "IQD") return Math.round(usd * CONFIG.iqdPerUsd).toLocaleString("en-US") + " IQD";
+  const hasCents = Math.round(usd * 100) % 100 !== 0;
+  return "$" + usd.toLocaleString("en-US", { minimumFractionDigits: hasCents ? 2 : 0, maximumFractionDigits: 2 });
+}
+
+function calcPlan(price, downPct, months) {
+  const down = round2((price * downPct) / 100);
+  const financed = round2(price - down);
+  const fee = CONFIG.installmentFee[months] || 0;
+  const feeAmount = round2(financed * fee);
+  const monthly = round2((financed + feeAmount) / months);
+  const total = round2(down + monthly * months);
+  return { down, financed, feeAmount, monthly, total };
+}
+
+const waLink = (text) =>
+  "https://wa.me/" + CONFIG.whatsapp + (text ? "?text=" + encodeURIComponent(text) : "");
+
+function loadCart() {
+  try {
+    const raw = JSON.parse(localStorage.getItem("zrar_cart") || "[]");
+    return raw
+      .filter((c) => PRODUCTS.some((p) => p.id === c.id) && c.qty > 0)
+      .map((c) => ({ id: c.id, qty: Math.min(99, Math.floor(c.qty)) }));
+  } catch (e) {
+    return [];
+  }
+}
+
+/* ==========================================================================
+   Currency context — every price on the site reads from here
+   ========================================================================== */
+const CurrencyCtx = createContext({ cur: "USD", setCur: () => {}, fmt: (n) => String(n) });
+const useCurrency = () => useContext(CurrencyCtx);
+
+function CurrencyProvider({ children }) {
+  const [cur, setCurState] = useState(() => {
+    try { return localStorage.getItem("zrar_cur") === "IQD" ? "IQD" : "USD"; } catch (e) { return "USD"; }
+  });
+  const setCur = useCallback((c) => {
+    setCurState(c);
+    try { localStorage.setItem("zrar_cur", c); } catch (e) {}
+  }, []);
+  const fmt = useCallback((usd) => formatMoney(usd, cur), [cur]);
+  const value = useMemo(() => ({ cur, setCur, fmt }), [cur, setCur, fmt]);
+  return <CurrencyCtx.Provider value={value}>{children}</CurrencyCtx.Provider>;
+}
+
+function Price({ usd, className = "" }) {
+  const { cur, fmt } = useCurrency();
+  return <span key={cur} className={"price-swap " + className}>{fmt(usd)}</span>;
+}
+
+/* ==========================================================================
+   Icons (inline SVG, lucide-style)
+   ========================================================================== */
+const ICONS = {
+  bag: <><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" /><path d="M3 6h18" /><path d="M16 10a4 4 0 0 1-8 0" /></>,
+  close: <><path d="M18 6 6 18" /><path d="m6 6 12 12" /></>,
+  plus: <><path d="M5 12h14" /><path d="M12 5v14" /></>,
+  minus: <><path d="M5 12h14" /></>,
+  trash: <><path d="M3 6h18" /><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" /><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" /><line x1="10" x2="10" y1="11" y2="17" /><line x1="14" x2="14" y1="11" y2="17" /></>,
+  arrow: <><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></>,
+  check: <><path d="M20 6 9 17l-5-5" /></>,
+  chevron: <><path d="m6 9 6 6 6-6" /></>,
+  calc: <><rect width="16" height="20" x="4" y="2" rx="2" /><line x1="8" x2="16" y1="6" y2="6" /><line x1="16" x2="16" y1="14" y2="18" /><path d="M16 10h.01" /><path d="M12 10h.01" /><path d="M8 10h.01" /><path d="M12 14h.01" /><path d="M8 14h.01" /><path d="M12 18h.01" /><path d="M8 18h.01" /></>,
+};
+
+function Icon({ name, size = 20, className = "", strokeWidth = 1.75 }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+      {ICONS[name]}
+    </svg>
+  );
+}
+
+function WhatsAppIcon({ size = 20 }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+    </svg>
+  );
+}
+
+/* ==========================================================================
+   BorderBeam — animated glowing light trail around a card or badge.
+   (Same idea as Magic UI's <BorderBeam />, rebuilt in plain CSS so it works
+   from a CDN with no build step.) Parent must be `relative` with a radius.
+   ========================================================================== */
+function BorderBeam({
+  size = 220, duration = 8, delay = 0, borderWidth = 1.5, radius = 28,
+  colorFrom = "#f3dba5", colorTo = "#8b7bff", reverse = false,
+}) {
+  return (
+    <span
+      aria-hidden="true"
+      className="beam-ring"
+      style={{
+        "--bw": borderWidth + "px",
+        "--size": size + "px",
+        "--dur": duration + "s",
+        "--delay": "-" + delay + "s",
+        "--from": colorFrom,
+        "--to": colorTo,
+        "--radius": radius + "px",
+      }}
+    >
+      <span className="beam-dot" style={{ animationDirection: reverse ? "reverse" : "normal" }} />
+    </span>
+  );
+}
+
+/* ==========================================================================
+   Scroll animation primitives (GSAP + ScrollTrigger)
+   ========================================================================== */
+function Reveal({ children, className = "", y = 60, scale = 0.96, delay = 0 }) {
+  const ref = useRef(null);
+  useLayoutEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (prefersReduced) { gsap.set(el, { opacity: 1 }); return; }
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        el,
+        { opacity: 0, y, scale },
+        {
+          opacity: 1, y: 0, scale: 1, duration: 1.15, delay, ease: "power3.out",
+          scrollTrigger: { trigger: el, start: "top 90%", once: true },
+        }
+      );
+    });
+    return () => ctx.revert();
+  }, []);
+  return <div ref={ref} className={className} style={{ opacity: 0 }}>{children}</div>;
+}
+
+function Words({ text, className = "" }) {
+  return (
+    <span className={className}>
+      {text.split(" ").map((w, i) => {
+        const accent = w.startsWith("_");
+        const label = accent ? w.replace(/_/g, "") : w;
+        return (
+          <React.Fragment key={i}>
+            <span className="inline-block overflow-hidden align-bottom pb-[0.14em] -mb-[0.14em]">
+              <span className={"hw inline-block will-change-transform " + (accent ? "italic text-gold-grad" : "")}>{label}</span>
+            </span>{" "}
+          </React.Fragment>
+        );
+      })}
+    </span>
+  );
+}
+
+function ScrollWords({ text, className = "" }) {
+  const ref = useRef(null);
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      const words = ref.current.querySelectorAll(".sw");
+      if (prefersReduced) { gsap.set(words, { opacity: 1 }); return; }
+      gsap.fromTo(
+        words,
+        { opacity: 0.14 },
+        {
+          opacity: 1, ease: "none", stagger: 0.12,
+          scrollTrigger: { trigger: ref.current, start: "top 82%", end: "bottom 50%", scrub: true },
+        }
+      );
+    }, ref);
+    return () => ctx.revert();
+  }, []);
+  return (
+    <p ref={ref} className={className}>
+      {text.split(" ").map((w, i) => (
+        <span key={i} className="sw inline-block mr-[0.28em]" style={{ opacity: 0.14 }}>{w}</span>
+      ))}
+    </p>
+  );
+}
+
+function CountUp({ value, prefix = "", suffix = "" }) {
+  const ref = useRef(null);
+  useLayoutEffect(() => {
+    const el = ref.current;
+    const obj = { v: prefersReduced ? value : 0 };
+    const render = () => { el.textContent = prefix + Math.round(obj.v).toLocaleString("en-US") + suffix; };
+    render();
+    if (prefersReduced) return;
+    const ctx = gsap.context(() => {
+      gsap.to(obj, {
+        v: value, duration: 2.2, ease: "power2.out", onUpdate: render,
+        scrollTrigger: { trigger: el, start: "top 88%", once: true },
+      });
+    });
+    return () => ctx.revert();
+  }, [value]);
+  return <span ref={ref} />;
+}
+
+function SectionHeader({ eyebrow, title, sub }) {
+  return (
+    <div className="mx-auto max-w-3xl text-center">
+      <Reveal y={30} scale={1}><p className="eyebrow">{eyebrow}</p></Reveal>
+      <Reveal y={50} scale={0.97} delay={0.08}>
+        <h2 className="mt-4 font-display text-4xl font-medium leading-[1.05] sm:text-5xl lg:text-6xl">{title}</h2>
+      </Reveal>
+      {sub && (
+        <Reveal y={30} scale={1} delay={0.16}>
+          <p className="mt-5 text-base leading-relaxed text-white/60 sm:text-lg">{sub}</p>
+        </Reveal>
+      )}
+    </div>
+  );
+}
+
+/* ==========================================================================
+   Background video (fixed, full-screen, zoomed into the monitor) + overlay
+   ========================================================================== */
+function BackgroundVideo() {
+  const ref = useRef(null);
+  useEffect(() => {
+    const v = ref.current;
+    if (!v) return;
+    v.muted = true;
+    v.defaultMuted = true;
+    const p = v.play();
+    if (p && p.catch) p.catch(() => {});
+  }, []);
+  return (
+    <div className="fixed inset-0 z-0 overflow-hidden bg-obsidian" aria-hidden="true">
+      {/* Put hero-video.mp4 in the same folder as this file */}
+      <video
+        ref={ref}
+        src="hero-video.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        className="absolute inset-0 h-full w-full"
+        style={{ objectFit: "cover", transform: "scale(2.1)", objectPosition: "center 58%" }}
+      />
+      <div
+        className="absolute inset-0"
+        style={{ background: "radial-gradient(ellipse at center, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.75) 45%, rgba(5,5,5,0.93) 100%)" }}
+      />
+    </div>
+  );
+}
+
+/* ==========================================================================
+   Navbar + currency switcher
+   ========================================================================== */
+function CurrencySwitch() {
+  const { cur, setCur } = useCurrency();
+  return (
+    <div role="group" aria-label="Currency" className="relative flex items-center rounded-full border border-white/10 bg-white/[0.05] p-0.5 text-[11px] font-bold tracking-wide sm:text-xs">
+      <span
+        className="absolute bottom-0.5 left-0.5 top-0.5 rounded-full bg-gradient-to-b from-[#f3dba5] to-[#c9a15a] shadow-[0_6px_18px_-6px_rgba(217,179,107,.7)] transition-transform duration-500 ease-[cubic-bezier(.2,.8,.2,1)]"
+        style={{ width: "calc(50% - 2px)", transform: cur === "USD" ? "translateX(0)" : "translateX(100%)" }}
+      />
+      {["USD", "IQD"].map((c) => (
+        <button
+          key={c}
+          onClick={() => setCur(c)}
+          aria-pressed={cur === c}
+          className={"relative z-10 w-12 rounded-full py-2 text-center transition-colors sm:w-[60px] " + (cur === c ? "text-[#1a1305]" : "text-white/70 hover:text-white")}
+        >
+          {c === "USD" ? "$ USD" : "IQD"}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+function Navbar({ count, onBag, bagRef }) {
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const f = () => setScrolled(window.scrollY > 24);
+    f();
+    window.addEventListener("scroll", f, { passive: true });
+    return () => window.removeEventListener("scroll", f);
+  }, []);
+  const links = [
+    ["Collection", "#collection"],
+    ["Hardware", "#hardware"],
+    ["Installments", "#installments"],
+    ["Contact", "#contact"],
+  ];
+  return (
+    <header className={"sticky top-0 z-50 transition-all duration-500 " + (scrolled ? "nav-glass-solid" : "nav-glass")}>
+      <div className="mx-auto flex h-[68px] max-w-7xl items-center justify-between gap-3 px-4 sm:px-8">
+        <a href="#top" className="flex flex-col leading-none" aria-label={CONFIG.brand + " — " + CONFIG.subtitle}>
+          <span className="font-display text-[26px] font-semibold tracking-[0.32em] text-gold-grad sm:text-[30px]">{CONFIG.brand}</span>
+          <span className="mt-1 whitespace-nowrap text-[7px] tracking-[0.18em] text-white/55 sm:text-[9px] sm:tracking-[0.28em]">{CONFIG.subtitle}</span>
+        </a>
+        <nav className="hidden items-center gap-9 text-[13px] tracking-wide text-white/70 md:flex">
+          {links.map(([l, h]) => (
+            <a key={l} href={h} className="relative transition-colors hover:text-white after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-0 after:bg-gold after:transition-all after:duration-300 hover:after:w-full">{l}</a>
+          ))}
+        </nav>
+        <div className="flex items-center gap-2 sm:gap-3">
+          <CurrencySwitch />
+          <button
+            ref={bagRef}
+            onClick={onBag}
+            aria-label={"Open shopping bag, " + count + " items"}
+            className="glass relative flex h-11 w-11 items-center justify-center rounded-full transition-colors hover:border-gold/60"
+          >
+            <Icon name="bag" size={19} />
+            {count > 0 && (
+              <span className="absolute -right-1 -top-1 flex h-[19px] min-w-[19px] items-center justify-center rounded-full bg-gradient-to-b from-[#f3dba5] to-[#b8893f] px-1 text-[10px] font-extrabold text-[#1a1305]">{count}</span>
+            )}
+          </button>
+        </div>
+      </div>
+    </header>
+  );
+}
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+function Hero() {
+  const root = useRef(null);
+  const content = useRef(null);
+  useLayoutEffect(() => {
+    if (prefersReduced) return;
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+      tl.from(".hero-badge", { opacity: 0, y: 24, scale: 0.9, duration: 1 })
+        .from(".hw", { yPercent: 115, duration: 1.3, stagger: 0.09 }, "-=0.6")
+        .from(".hero-fade", { opacity: 0, y: 30, duration: 1, stagger: 0.12 }, "-=0.8");
+      gsap.to(content.current, {
+        opacity: 0, y: -90, scale: 0.93, ease: "none",
+        scrollTrigger: { trigger: root.current, start: "top top", end: "bottom 25%", scrub: true },
+      });
+    }, root);
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <section id="top" ref={root} className="relative flex min-h-[calc(100svh-68px)] items-center">
+      <div ref={content} className="mx-auto w-full max-w-6xl px-5 py-16 text-center sm:px-8 sm:py-24">
+        <div className="hero-badge glass relative inline-flex items-center gap-2.5 rounded-full px-5 py-2.5 text-[10.5px] uppercase tracking-[0.24em] text-white/85 sm:text-xs">
+          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-gold" />
+          The 2026 Flagship Collection
+          <BorderBeam size={90} duration={5} borderWidth={1.5} radius={999} colorFrom="#f3dba5" colorTo="#9b87ff" />
+          <BorderBeam size={90} duration={5} delay={2.5} borderWidth={1.5} radius={999} colorFrom="#8b7bff" colorTo="#f3dba5" />
+        </div>
+
+        <h1 className="mt-8 font-display font-medium leading-[0.98] tracking-tight" style={{ fontSize: "clamp(2.6rem, 8.2vw, 6.6rem)" }}>
+          <Words text="Flagship technology, curated for _Erbil._" />
+        </h1>
+
+        <p className="hero-fade mx-auto mt-7 max-w-2xl text-base leading-relaxed text-white/65 sm:text-lg">
+          Hand-picked phones, wearables and accessories. Switch between dollars and dinar, split the price into monthly installments, and order in seconds on WhatsApp.
+        </p>
+
+        <div className="mt-10 flex flex-col items-center justify-center gap-3.5 sm:flex-row">
+          <a href="#collection" className="hero-fade btn btn-gold">
+            Explore the Collection <Icon name="arrow" size={17} />
+          </a>
+          <a href={waLink("Hello ZRAR! I'd like to place an order.")} target="_blank" rel="noopener noreferrer" className="hero-fade btn btn-ghost">
+            <WhatsAppIcon size={18} /> Order via WhatsApp
+          </a>
+        </div>
+
+        <div className="mx-auto mt-16 grid max-w-3xl gap-3 sm:grid-cols-3">
+          {HERO_STATS.map((s) => (
+            <div key={s.k} className="hero-fade glass rounded-2xl px-5 py-4">
+              <div className="font-display text-2xl font-semibold text-gold-grad sm:text-[26px]">{s.k}</div>
+              <div className="mt-1 text-[11px] uppercase tracking-[0.16em] text-white/50">{s.v}</div>
+            </div>
+          ))}
+        </div>
+
+        <a href="#hardware" aria-label="Scroll down" className="hero-fade mx-auto mt-14 hidden w-fit text-white/50 sm:block">
+          <span className="cue block"><Icon name="chevron" size={26} /></span>
+        </a>
+      </div>
+    </section>
+  );
+}
+
+function Marquee() {
+  const items = ["iPhone 16 Pro Max", "Galaxy S25 Ultra", "Apple Watch Ultra 2", "AirPods Pro 2", "MagSafe", "Spigen"];
+  const row = [...items, ...items, ...items, ...items];
+  return (
+    <div className="relative overflow-hidden border-y border-white/10 bg-black/30 py-5 backdrop-blur-md" aria-hidden="true">
+      <div className="marquee-track flex w-max items-center gap-12">
+        {row.map((t, i) => (
+          <span key={i} className="flex items-center gap-12 whitespace-nowrap font-display text-xl italic text-white/40 sm:text-2xl">
+            {t}
+            <span className="h-1 w-1 rounded-full bg-gold/70" />
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* ==========================================================================
+   Luxury hardware specs
+   ========================================================================== */
+function Hardware() {
+  return (
+    <section id="hardware" className="relative py-24 sm:py-32">
+      <div className="mx-auto max-w-6xl px-5 sm:px-8">
+        <SectionHeader
+          eyebrow="The Hardware"
+          title={<>Engineered beyond <span className="italic text-gold-grad">expectation</span></>}
+        />
+        <ScrollWords
+          className="mx-auto mt-14 max-w-4xl text-center font-display text-3xl font-medium leading-[1.2] sm:text-4xl lg:text-5xl"
+          text="Titanium frames. Pro-grade silicon. Displays brighter than daylight. Every device here is chosen, never merely stocked."
+        />
+        <div className="mt-20 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+          {SPECS.map((s, i) => (
+            <Reveal key={s.device} y={90} scale={0.9} delay={i * 0.08} className="h-full">
+              <div className="glass flex h-full flex-col rounded-3xl p-7">
+                <div className="font-display text-4xl font-semibold leading-none text-gold-grad sm:text-5xl xl:text-4xl 2xl:text-5xl">
+                  <CountUp value={s.value} prefix={s.prefix} suffix={s.suffix} />
+                </div>
+                <div className="mt-5 h-px w-12 bg-gradient-to-r from-gold to-transparent" />
+                <h3 className="mt-5 font-display text-2xl font-medium">{s.device}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-white/55">{s.text}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ==========================================================================
+   Product image with graceful fallback
+   ========================================================================== */
+function ProductImage({ p, className = "", imgClass = "" }) {
+  const [failed, setFailed] = useState(false);
+  return (
+    <div className={"relative overflow-hidden bg-[#0c0c0c] " + className}>
+      {!failed ? (
+        <>
+          {/* <!-- REPLACE WITH YOUR PRODUCT IMAGE --> */}
+          <img
+            src={p.img}
+            alt={p.name}
+            loading="lazy"
+            decoding="async"
+            onError={() => setFailed(true)}
+            className={"h-full w-full object-cover " + imgClass}
+            style={{ filter: "brightness(.82) contrast(1.08) saturate(1.05)" }}
+          />
+        </>
+      ) : (
+        <div className="absolute inset-0 flex items-center justify-center px-3 text-center" style={{ background: "radial-gradient(circle at 30% 20%, #2a2418, #0b0b0b 72%)" }}>
+          <span className="font-display text-lg leading-tight tracking-wide text-white/35">{p.name}</span>
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ==========================================================================
+   Product card (3D tilt + zoom + optional border beams)
+   ========================================================================== */
+function ProductCard({ p, index, onAdd, onPlan }) {
+  const tilt = useRef(null);
+  const [added, setAdded] = useState(false);
+  const eligible = p.price >= CONFIG.installmentMinPrice;
+  const lowest = eligible ? calcPlan(p.price, 0, CONFIG.installmentMonths[CONFIG.installmentMonths.length - 1]).monthly : 0;
+
+  useEffect(() => {
+    if (!added) return;
+    const t = setTimeout(() => setAdded(false), 1500);
+    return () => clearTimeout(t);
+  }, [added]);
+
+  const move = (e) => {
+    if (e.pointerType === "touch" || prefersReduced) return;
+    const el = tilt.current;
+    const r = el.getBoundingClientRect();
+    const px = (e.clientX - r.left) / r.width;
+    const py = (e.clientY - r.top) / r.height;
+    gsap.to(el, {
+      rotateY: (px - 0.5) * 14, rotateX: -(py - 0.5) * 14, scale: 1.025,
+      transformPerspective: 900, transformOrigin: "center", duration: 0.5, ease: "power2.out", overwrite: "auto",
+    });
+    el.style.setProperty("--mx", px * 100 + "%");
+    el.style.setProperty("--my", py * 100 + "%");
+  };
+  const leave = () => {
+    gsap.to(tilt.current, { rotateY: 0, rotateX: 0, scale: 1, duration: 0.9, ease: "power3.out", overwrite: "auto" });
+  };
+
+  return (
+    <Reveal delay={(index % 3) * 0.1} y={70} scale={0.95} className="h-full">
+      <article
+        ref={tilt}
+        onPointerMove={move}
+        onPointerLeave={leave}
+        className="tilt-card glass group relative flex h-full flex-col overflow-hidden rounded-[28px]"
+      >
+        <div className="spot" />
+        <div className="relative">
+          {/* <!-- REPLACE WITH YOUR PRODUCT IMAGE --> (edit the `img:` field for this product in the PRODUCTS list at the top of the script) */}
+          <ProductImage p={p} className="aspect-square" imgClass="transition-transform duration-[900ms] ease-out group-hover:scale-110" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-black/20" />
+          <span className="absolute left-4 top-4 rounded-full border border-gold/40 bg-black/50 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-gold-light backdrop-blur-md">{p.badge}</span>
+          <span className="absolute right-4 top-4 rounded-full border border-white/15 bg-black/40 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-white/70 backdrop-blur-md">{p.category}</span>
+        </div>
+
+        <div className="relative z-[2] flex flex-1 flex-col p-6 pt-2">
+          <h3 className="font-display text-[1.7rem] font-medium leading-tight">{p.name}</h3>
+          <p className="mt-1.5 text-sm text-white/55">{p.tagline}</p>
+          <ul className="mt-4 flex flex-wrap gap-2">
+            {p.specs.map((s) => (
+              <li key={s} className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[11px] text-white/65">{s}</li>
+            ))}
+          </ul>
+
+          <div className="mt-auto pt-6">
+            <div className="flex items-end justify-between gap-3">
+              <div>
+                <Price usd={p.price} className="font-display text-3xl font-semibold" />
+                {eligible && (
+                  <div className="mt-1 text-xs text-gold-light/90">
+                    or from <Price usd={lowest} /> /mo
+                  </div>
+                )}
+              </div>
+              {eligible && (
+                <button
+                  onClick={() => onPlan(p)}
+                  className="flex items-center gap-1.5 rounded-full border border-white/15 bg-white/[0.04] px-3.5 py-2 text-[11px] font-semibold text-white/80 transition hover:border-gold/60 hover:text-white"
+                >
+                  <Icon name="calc" size={14} /> Installments
+                </button>
+              )}
+            </div>
+            <button
+              onClick={() => { onAdd(p); setAdded(true); }}
+              className={"btn mt-5 w-full " + (added ? "btn-ghost !border-gold/60" : "btn-gold")}
+            >
+              {added ? (<><Icon name="check" size={17} /> Added to bag</>) : (<><Icon name="bag" size={17} /> Add to bag</>)}
+            </button>
+          </div>
+        </div>
+
+        {p.featured && (
+          <>
+            <BorderBeam size={240} duration={9} borderWidth={1.5} radius={28} colorFrom="#f3dba5" colorTo="#d9b36b" />
+            <BorderBeam size={240} duration={9} delay={4.5} borderWidth={2} radius={28} colorFrom="#8b7bff" colorTo="#4cc9ff" />
+          </>
+        )}
+      </article>
+    </Reveal>
+  );
+}
+
+/* ==========================================================================
+   Collection with category tabs
+   ========================================================================== */
+function Collection({ onAdd, onPlan }) {
+  const [filter, setFilter] = useState("All");
+  const list = useMemo(() => (filter === "All" ? PRODUCTS : PRODUCTS.filter((p) => p.category === filter)), [filter]);
+  useEffect(() => {
+    const t = setTimeout(() => ScrollTrigger.refresh(), 150);
+    return () => clearTimeout(t);
+  }, [filter]);
+  const gridCls =
+    list.length === 1 ? "mx-auto max-w-md grid-cols-1"
+    : list.length === 2 ? "mx-auto max-w-4xl sm:grid-cols-2"
+    : "sm:grid-cols-2 lg:grid-cols-3";
+
+  return (
+    <section id="collection" className="relative py-24 sm:py-32">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        <SectionHeader
+          eyebrow="Flagship Catalog"
+          title={<>The <span className="italic text-gold-grad">Collection</span></>}
+          sub="Six pieces, hand-picked. Pick a category to refine, then add straight to your bag."
+        />
+
+        <Reveal y={30} scale={1} className="mt-12">
+          <div role="tablist" aria-label="Product categories" className="mx-auto flex w-fit max-w-full flex-wrap justify-center gap-2 rounded-full border border-white/10 bg-white/[0.04] p-1.5 backdrop-blur-xl">
+            {CATEGORIES.map((c) => {
+              const n = c === "All" ? PRODUCTS.length : PRODUCTS.filter((p) => p.category === c).length;
+              const active = filter === c;
+              return (
+                <button
+                  key={c}
+                  role="tab"
+                  aria-selected={active}
+                  onClick={() => setFilter(c)}
+                  className={"flex items-center gap-2 rounded-full px-5 py-2.5 text-[13px] font-semibold tracking-wide transition-all duration-300 " + (active ? "bg-gradient-to-b from-[#f3dba5] to-[#c9a15a] text-[#1a1305] shadow-[0_8px_24px_-10px_rgba(217,179,107,.8)]" : "text-white/65 hover:text-white")}
+                >
+                  {c}
+                  <span className={"text-[10px] " + (active ? "text-[#1a1305]/60" : "text-white/35")}>{n}</span>
+                </button>
+              );
+            })}
+          </div>
+        </Reveal>
+
+        <div key={filter} className={"mt-14 grid gap-6 " + gridCls}>
+          {list.map((p, i) => (
+            <ProductCard key={p.id} p={p} index={i} onAdd={onAdd} onPlan={onPlan} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ==========================================================================
+   Monthly installment calculator
+   ========================================================================== */
+function Installments({ selectedId, setSelectedId, onAdd }) {
+  const { cur, fmt } = useCurrency();
+  const eligible = useMemo(() => PRODUCTS.filter((p) => p.price >= CONFIG.installmentMinPrice), []);
+  const [months, setMonths] = useState(12);
+  const [down, setDown] = useState(20);
+  const p = eligible.find((x) => x.id === selectedId) || eligible[0];
+  const plan = calcPlan(p.price, down, months);
+
+  const message = [
+    "Hello ZRAR! I'd like to arrange an installment plan:",
+    "",
+    "Device: " + p.name,
+    "Price: " + fmt(p.price),
+    "Down payment: " + down + "% (" + fmt(plan.down) + ")",
+    "Plan: " + months + " months",
+    "Monthly payment: " + fmt(plan.monthly),
+    "Total payable: " + fmt(plan.total),
+    "Currency: " + (cur === "IQD" ? "IQD (1 USD = " + CONFIG.iqdPerUsd.toLocaleString("en-US") + " IQD)" : "USD"),
+    "",
+    "Please confirm availability and the next steps. Thank you!",
+  ].join("\n");
+
+  const pct = (down / 50) * 100;
+
+  return (
+    <section id="installments" className="relative py-24 sm:py-32">
+      <div className="mx-auto max-w-6xl px-5 sm:px-8">
+        <SectionHeader
+          eyebrow="Pay Your Way"
+          title={<>Monthly <span className="italic text-gold-grad">installments</span></>}
+          sub="Choose a device, set your down payment and pick 6, 12 or 24 months. Figures update instantly in your selected currency."
+        />
+
+        <Reveal y={70} scale={0.95} className="mt-14">
+          <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
+            {/* Controls */}
+            <div className="glass rounded-[28px] p-6 sm:p-8">
+              <p className="eyebrow">1 · Choose your device</p>
+              <div className="mt-5 grid gap-3">
+                {eligible.map((d) => (
+                  <button
+                    key={d.id}
+                    onClick={() => setSelectedId(d.id)}
+                    aria-pressed={d.id === p.id}
+                    className={"flex items-center gap-4 rounded-2xl border p-3 text-left transition " + (d.id === p.id ? "border-gold/60 bg-gold/10" : "border-white/10 bg-white/[0.03] hover:border-white/25")}
+                  >
+                    <ProductImage p={d} className="h-14 w-14 shrink-0 rounded-xl" />
+                    <span className="min-w-0 flex-1">
+                      <span className="block truncate font-display text-xl leading-tight">{d.name}</span>
+                      <span className="text-xs text-white/50">{d.category}</span>
+                    </span>
+                    <Price usd={d.price} className="text-sm font-semibold text-white/90" />
+                  </button>
+                ))}
+              </div>
+
+              <div className="mt-9 flex items-end justify-between">
+                <p className="eyebrow">2 · Down payment</p>
+                <p className="text-sm text-white/70">
+                  <span className="font-semibold text-white">{down}%</span> · <Price usd={plan.down} />
+                </p>
+              </div>
+              <input
+                type="range" min="0" max="50" step="5" value={down}
+                onChange={(e) => setDown(Number(e.target.value))}
+                aria-label="Down payment percentage"
+                className="zrar-range mt-5"
+                style={{ background: "linear-gradient(to right, #d9b36b 0%, #d9b36b " + pct + "%, rgba(255,255,255,.14) " + pct + "%, rgba(255,255,255,.14) 100%)" }}
+              />
+              <div className="mt-2 flex justify-between text-[10px] text-white/35"><span>0%</span><span>50%</span></div>
+
+              <p className="eyebrow mt-9">3 · Plan length</p>
+              <div className="mt-4 grid grid-cols-3 gap-3">
+                {CONFIG.installmentMonths.map((m) => {
+                  const pl = calcPlan(p.price, down, m);
+                  const active = m === months;
+                  return (
+                    <button
+                      key={m}
+                      onClick={() => setMonths(m)}
+                      aria-pressed={active}
+                      className={"rounded-2xl border px-2 py-4 text-center transition " + (active ? "border-gold/60 bg-gold/10" : "border-white/10 bg-white/[0.03] hover:border-white/25")}
+                    >
+                      <span className="block font-display text-4xl font-medium leading-none">{m}</span>
+                      <span className="mt-1 block text-[10px] uppercase tracking-[0.2em] text-white/45">months</span>
+                      <span className="mt-3 block text-[11px] text-gold-light/90"><Price usd={pl.monthly} />/mo</span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Result */}
+            <div className="glass relative flex flex-col overflow-hidden rounded-[28px] p-6 sm:p-9">
+              <p className="eyebrow">Your monthly payment</p>
+              <h3 className="mt-3 font-display text-2xl text-white/80">{p.name}</h3>
+              <div className="mt-6 flex flex-wrap items-baseline gap-x-3">
+                <Price usd={plan.monthly} className="font-display font-semibold leading-none text-gold-grad" />
+                <span className="text-sm text-white/50">/ month × {months}</span>
+              </div>
+
+              <dl className="mt-8 space-y-3.5 border-t border-white/10 pt-6 text-sm">
+                <div className="flex justify-between gap-4"><dt className="text-white/55">Device price</dt><dd><Price usd={p.price} /></dd></div>
+                <div className="flex justify-between gap-4"><dt className="text-white/55">Down payment ({down}%)</dt><dd><Price usd={plan.down} /></dd></div>
+                <div className="flex justify-between gap-4"><dt className="text-white/55">Amount financed</dt><dd><Price usd={plan.financed} /></dd></div>
+                {plan.feeAmount > 0 && (
+                  <div className="flex justify-between gap-4"><dt className="text-white/55">Service fee</dt><dd><Price usd={plan.feeAmount} /></dd></div>
+                )}
+                <div className="flex justify-between gap-4 border-t border-white/10 pt-3.5 text-base font-semibold"><dt>Total payable</dt><dd><Price usd={plan.total} /></dd></div>
+              </dl>
+
+              <div className="mt-auto grid gap-3 pt-8">
+                <a href={waLink(message)} target="_blank" rel="noopener noreferrer" className="btn btn-wa">
+                  <WhatsAppIcon size={18} /> Request this plan on WhatsApp
+                </a>
+                <button onClick={() => onAdd(p)} className="btn btn-ghost">
+                  <Icon name="bag" size={17} /> Add device to bag
+                </button>
+                <p className="text-center text-[11px] leading-relaxed text-white/40">
+                  Indicative estimate. Final terms are confirmed with our team on WhatsApp.
+                </p>
+              </div>
+
+              <BorderBeam size={300} duration={10} borderWidth={1.5} radius={28} colorFrom="#f3dba5" colorTo="#d9b36b" />
+              <BorderBeam size={300} duration={10} delay={5} borderWidth={1.5} radius={28} colorFrom="#8b7bff" colorTo="#4cc9ff" />
+            </div>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+/* ==========================================================================
+   Shopping bag drawer + WhatsApp checkout
+   ========================================================================== */
+function CartDrawer({ open, onClose, items, totalUSD, setQty, remove, clear }) {
+  const { cur, fmt } = useCurrency();
+  const panel = useRef(null);
+  const closeBtn = useRef(null);
+  const [name, setName] = useState("");
+  const [area, setArea] = useState("");
+  const [notes, setNotes] = useState("");
+
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    const onKey = (e) => { if (e.key === "Escape") onClose(); };
+    window.addEventListener("keydown", onKey);
+    if (open) setTimeout(() => closeBtn.current && closeBtn.current.focus(), 350);
+    return () => { window.removeEventListener("keydown", onKey); document.body.style.overflow = ""; };
+  }, [open]);
+
+  useEffect(() => {
+    if (!open || prefersReduced) return;
+    const ctx = gsap.context(() => {
+      gsap.fromTo(".cart-anim", { x: 36, opacity: 0 }, { x: 0, opacity: 1, duration: 0.7, stagger: 0.06, delay: 0.2, ease: "power3.out" });
+    }, panel);
+    return () => ctx.revert();
+  }, [open]);
+
+  const message = useMemo(() => {
+    const lines = items.map(
+      (it, i) => (i + 1) + ". " + it.name + " × " + it.qty + " (" + fmt(it.price) + " each) = " + fmt(round2(it.price * it.qty))
+    );
+    return [
+      "Hello ZRAR! I'd like to place an order:",
+      "",
+      ...lines,
+      "",
+      "Currency: " + (cur === "IQD" ? "IQD (1 USD = " + CONFIG.iqdPerUsd.toLocaleString("en-US") + " IQD)" : "USD"),
+      "Total: " + fmt(totalUSD),
+      ...(name.trim() ? ["", "Name: " + name.trim()] : []),
+      ...(area.trim() ? ["Delivery area: " + area.trim()] : []),
+      ...(notes.trim() ? ["Notes: " + notes.trim()] : []),
+      "",
+      "Please confirm availability and delivery. Thank you!",
+    ].join("\n");
+  }, [items, cur, fmt, totalUSD, name, area, notes]);
+
+  const empty = items.length === 0;
+
+  return (
+    <div
+      className="fixed inset-0 z-[70]"
+      aria-hidden={!open}
+      style={{ visibility: open ? "visible" : "hidden", transition: open ? "visibility 0s" : "visibility 0s linear .65s" }}
+    >
+      <div
+        onClick={onClose}
+        className={"absolute inset-0 bg-black/70 backdrop-blur-sm transition-opacity duration-500 " + (open ? "opacity-100" : "opacity-0")}
+      />
+      <aside
+        ref={panel}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Shopping bag"
+        className={"drawer-panel absolute right-0 top-0 flex h-full w-full max-w-[450px] flex-col transition-transform duration-[650ms] ease-[cubic-bezier(.22,1,.36,1)] " + (open ? "translate-x-0" : "translate-x-full")}
+      >
+        <div className="flex items-center justify-between border-b border-white/10 px-6 py-5">
+          <div>
+            <p className="eyebrow">Your selection</p>
+            <h2 className="mt-1 font-display text-3xl font-medium">Shopping Bag</h2>
+          </div>
+          <button ref={closeBtn} onClick={onClose} aria-label="Close shopping bag" className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/80 transition hover:border-gold/60 hover:text-white">
+            <Icon name="close" size={18} />
+          </button>
+        </div>
+
+        {empty ? (
+          <div className="flex flex-1 flex-col items-center justify-center px-8 text-center">
+            <div className="flex h-20 w-20 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-gold">
+              <Icon name="bag" size={32} strokeWidth={1.3} />
+            </div>
+            <h3 className="mt-6 font-display text-3xl">Your bag is empty</h3>
+            <p className="mt-2 text-sm text-white/50">Add a flagship device or accessory and it will appear here.</p>
+            <a href="#collection" onClick={onClose} className="btn btn-gold mt-8">Explore the Collection</a>
+          </div>
+        ) : (
+          <>
+            <ul className="flex-1 space-y-4 overflow-y-auto px-6 py-5">
+              {items.map((it) => (
+                <li key={it.id} className="cart-anim flex gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-3">
+                  <ProductImage p={it} className="h-[84px] w-[84px] shrink-0 rounded-xl" />
+                  <div className="flex min-w-0 flex-1 flex-col">
+                    <div className="flex items-start justify-between gap-2">
+                      <h4 className="font-display text-xl leading-tight">{it.name}</h4>
+                      <button onClick={() => remove(it.id)} aria-label={"Remove " + it.name} className="shrink-0 text-white/40 transition hover:text-red-400">
+                        <Icon name="trash" size={16} />
+                      </button>
+                    </div>
+                    <div className="mt-0.5 text-xs text-white/45"><Price usd={it.price} /> each</div>
+                    <div className="mt-auto flex items-center justify-between pt-2">
+                      <div className="flex items-center rounded-full border border-white/12 bg-black/30">
+                        <button onClick={() => setQty(it.id, it.qty - 1)} aria-label="Decrease quantity" className="flex h-8 w-8 items-center justify-center text-white/70 transition hover:text-white"><Icon name="minus" size={14} /></button>
+                        <span className="w-7 text-center text-sm font-semibold" aria-live="polite">{it.qty}</span>
+                        <button onClick={() => setQty(it.id, it.qty + 1)} aria-label="Increase quantity" className="flex h-8 w-8 items-center justify-center text-white/70 transition hover:text-white"><Icon name="plus" size={14} /></button>
+                      </div>
+                      <Price usd={round2(it.price * it.qty)} className="text-sm font-semibold" />
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+
+            <div className="cart-anim space-y-4 border-t border-white/10 bg-black/30 px-6 pb-6 pt-5">
+              <div className="grid grid-cols-2 gap-2.5">
+                <input className="field" placeholder="Your name (optional)" value={name} onChange={(e) => setName(e.target.value)} aria-label="Your name" />
+                <input className="field" placeholder="Delivery area (optional)" value={area} onChange={(e) => setArea(e.target.value)} aria-label="Delivery area" />
+                <input className="field col-span-2" placeholder="Notes — colour, storage, case model…" value={notes} onChange={(e) => setNotes(e.target.value)} aria-label="Order notes" />
+              </div>
+
+              <div>
+                <div className="flex items-end justify-between">
+                  <span className="text-sm uppercase tracking-[0.18em] text-white/55">Total</span>
+                  <Price usd={totalUSD} className="font-display text-4xl font-semibold text-gold-grad" />
+                </div>
+                <p className="mt-1 text-right text-[11px] text-white/35">
+                  Rate: 1 USD = {CONFIG.iqdPerUsd.toLocaleString("en-US")} IQD · Showing {cur}
+                </p>
+              </div>
+
+              <a href={waLink(message)} target="_blank" rel="noopener noreferrer" className="btn btn-wa w-full">
+                <WhatsAppIcon size={19} /> Order via WhatsApp
+              </a>
+              <button onClick={clear} className="w-full text-center text-xs text-white/40 transition hover:text-white/70">Clear bag</button>
+            </div>
+          </>
+        )}
+      </aside>
+    </div>
+  );
+}
+
+/* ==========================================================================
+   Concierge CTA + footer + toast
+   ========================================================================== */
+function Concierge() {
+  return (
+    <section id="contact" className="relative py-24 sm:py-32">
+      <div className="mx-auto max-w-5xl px-5 sm:px-8">
+        <Reveal y={80} scale={0.93}>
+          <div className="glass relative overflow-hidden rounded-[36px] px-6 py-14 text-center sm:px-16 sm:py-20">
+            <p className="eyebrow">Concierge</p>
+            <h2 className="mx-auto mt-4 max-w-2xl font-display text-4xl font-medium leading-[1.05] sm:text-6xl">
+              Prefer to talk? <span className="italic text-gold-grad">We're a message away.</span>
+            </h2>
+            <p className="mx-auto mt-5 max-w-xl text-white/60">
+              Tell us what you're looking for and our Erbil team will confirm availability, colours and delivery in minutes.
+            </p>
+            <a href={waLink("Hello ZRAR! I'd like some help choosing a device.")} target="_blank" rel="noopener noreferrer" className="btn btn-wa mt-9">
+              <WhatsAppIcon size={19} /> Chat on WhatsApp
+            </a>
+            <p className="mt-4 text-sm tracking-wide text-white/45">{CONFIG.whatsappDisplay}</p>
+            <BorderBeam size={420} duration={11} borderWidth={2} radius={36} colorFrom="#f3dba5" colorTo="#d9b36b" />
+            <BorderBeam size={420} duration={11} delay={5.5} borderWidth={2} radius={36} colorFrom="#8b7bff" colorTo="#4cc9ff" />
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="relative border-t border-white/10 bg-black/50 backdrop-blur-xl">
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-5 py-10 text-center sm:px-8 md:flex-row md:text-left">
+        <div>
+          <div className="font-display text-3xl font-semibold tracking-[0.32em] text-gold-grad">{CONFIG.brand}</div>
+          <div className="mt-1 text-[10px] tracking-[0.28em] text-white/45">{CONFIG.subtitle}</div>
+        </div>
+        <nav className="flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm text-white/55">
+          <a href="#collection" className="hover:text-white">Collection</a>
+          <a href="#hardware" className="hover:text-white">Hardware</a>
+          <a href="#installments" className="hover:text-white">Installments</a>
+          <a href={waLink()} target="_blank" rel="noopener noreferrer" className="hover:text-white">WhatsApp</a>
+        </nav>
+        <p className="max-w-xs text-[11px] leading-relaxed text-white/35">
+          © {new Date().getFullYear()} ZRAR · Erbil, Kurdistan Region. Product names and trademarks belong to their respective owners.
+        </p>
+      </div>
+    </footer>
+  );
+}
+
+function Toast({ toast, onView }) {
+  if (!toast) return null;
+  return (
+    <div
+      key={toast.id}
+      role="status"
+      className="toast-pop glass fixed bottom-6 left-1/2 z-[90] flex max-w-[92vw] items-center gap-4 rounded-full py-2.5 pl-5 pr-2.5 text-sm shadow-[0_20px_60px_-20px_#000]"
+      style={{ background: "rgba(14,14,14,.85)" }}
+    >
+      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gold/20 text-gold"><Icon name="check" size={14} strokeWidth={2.4} /></span>
+      <span className="truncate text-white/85">{toast.msg}</span>
+      <button onClick={onView} className="shrink-0 rounded-full bg-gradient-to-b from-[#f3dba5] to-[#c9a15a] px-4 py-2 text-xs font-bold text-[#1a1305]">View bag</button>
+    </div>
+  );
+}
+
+/* ==========================================================================
+   App
+   ========================================================================== */
+function App() {
+  const [cart, setCart] = useState(loadCart);
+  const [open, setOpen] = useState(false);
+  const [toast, setToast] = useState(null);
+  const [planId, setPlanId] = useState("iphone-16-pro-max");
+  const bagRef = useRef(null);
+  const firstCount = useRef(true);
+
+  const items = useMemo(
+    () => cart.map((c) => ({ ...PRODUCTS.find((p) => p.id === c.id), qty: c.qty })),
+    [cart]
+  );
+  const count = items.reduce((n, i) => n + i.qty, 0);
+  const totalUSD = round2(items.reduce((s, i) => s + i.price * i.qty, 0));
+
+  useEffect(() => {
+    try { localStorage.setItem("zrar_cart", JSON.stringify(cart)); } catch (e) {}
+  }, [cart]);
+
+  useEffect(() => {
+    if (firstCount.current) { firstCount.current = false; return; }
+    if (prefersReduced || !bagRef.current) return;
+    gsap.fromTo(bagRef.current, { scale: 1 }, { scale: 1.2, yoyo: true, repeat: 1, duration: 0.18, ease: "power2.out" });
+  }, [count]);
+
+  useEffect(() => {
+    if (!toast) return;
+    const t = setTimeout(() => setToast(null), 3000);
+    return () => clearTimeout(t);
+  }, [toast]);
+
+  useEffect(() => {
+    const refresh = () => ScrollTrigger.refresh();
+    window.addEventListener("load", refresh);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(refresh);
+    return () => window.removeEventListener("load", refresh);
+  }, []);
+
+  const add = useCallback((p) => {
+    setCart((prev) => {
+      const ex = prev.find((c) => c.id === p.id);
+      return ex
+        ? prev.map((c) => (c.id === p.id ? { ...c, qty: Math.min(99, c.qty + 1) } : c))
+        : [...prev, { id: p.id, qty: 1 }];
+    });
+    setToast({ id: Date.now(), msg: p.name + " added to your bag" });
+  }, []);
+
+  const setQty = useCallback((id, qty) => {
+    setCart((prev) => (qty <= 0 ? prev.filter((c) => c.id !== id) : prev.map((c) => (c.id === id ? { ...c, qty: Math.min(99, qty) } : c))));
+  }, []);
+  const remove = useCallback((id) => setCart((prev) => prev.filter((c) => c.id !== id)), []);
+  const clear = useCallback(() => setCart([]), []);
+
+  const onPlan = useCallback((p) => {
+    setPlanId(p.id);
+    const el = document.getElementById("installments");
+    if (el) el.scrollIntoView({ behavior: prefersReduced ? "auto" : "smooth", block: "start" });
+  }, []);
+
+  return (
+    <CurrencyProvider>
+      <BackgroundVideo />
+      <div className="ambient" aria-hidden="true"><i /><i /></div>
+      <div className="grain" aria-hidden="true" />
+
+      <div className="relative z-10">
+        <Navbar count={count} onBag={() => setOpen(true)} bagRef={bagRef} />
+        <main>
+          <Hero />
+          <Marquee />
+          <Hardware />
+          <Collection onAdd={add} onPlan={onPlan} />
+          <Installments selectedId={planId} setSelectedId={setPlanId} onAdd={add} />
+          <Concierge />
+        </main>
+        <Footer />
+      </div>
+
+      <CartDrawer open={open} onClose={() => setOpen(false)} items={items} totalUSD={totalUSD} setQty={setQty} remove={remove} clear={clear} />
+      <Toast toast={open ? null : toast} onView={() => { setToast(null); setOpen(true); }} />
+    </CurrencyProvider>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>
